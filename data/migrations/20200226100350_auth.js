@@ -18,7 +18,7 @@ exports.up = function(knex) {
     .notNullable()
     operators.string('password')
     .notNullable()
-    operators.integer('trunksOwned')
+    operators.integer('trucksOwned')
     .notNullable()
 })
 };

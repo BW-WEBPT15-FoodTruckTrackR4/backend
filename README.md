@@ -4,11 +4,11 @@
 Questions about Documentation or need help? Let Mary know ASAP.
 
 Deployed with Heroku on:
- Coming Soon By Thursday at the latest.
+ https://foodtrucktrackr4.herokuapp.com/
 
 Example
 ```
-http://foodtrucktrackr4.herokuapp.com
+http://foodtrucktrackr4.herokuapp.com/api/truck
 
 ```
 # Register as Diner
@@ -48,7 +48,7 @@ NOTE: Register returns their token, their user info, and their hashed password
 example
 ```
 {
-	"username": "Operator12",
+	"username": "operator12",
 	"password": "foodtrucks",
 	"trucksOwned": "3",
 	
@@ -140,10 +140,12 @@ NOTE: Login returns a cookie with login timeout when logging in with their usern
 example
 ```
 {
-	"imageOfTruck": "https://triblive.com/wp-content/uploads/2019/04/1068244_web1_vnd-OIVtacotruck7-042919.jpg",
+	"imageOfTruck": "https://rh-vendoradmin.s3.amazonaws.com/trucks/original/22326/5bfc55cc-fad4-4ab2-b0a1-692346204482.jpg",
     cuisineType: "Mexican",
     "customerRatings": [5, 4.5, 5, 5]
-    "customerRatingAvg: 5
+    "customerRatingAvg: 4.7,
+	"menuId": 1,
+	"locationId: 1
 }
 ```
 # Create a Truck
@@ -189,8 +191,7 @@ example
 | itemDescription       | String |   YES    |   NO   |                       |
 | itemPhotos          | String |   YES    |   NO   |                       |
 | customerRatings         | String |   NO   |  NO   |                       |
-| customerRatingAvg     | Integer  | NO     |  NO
-|
+| customerRatingAvg     | Integer  | NO     |  NO |
 example
 ```
 {
@@ -198,7 +199,7 @@ example
     "itemDescription": "Classic tacos with cheese, sour cream, salsa and lots of beef"
     "itemPhotos": "https://www.thespruceeats.com/thmb/uqB61QlpzfPZAtMJ-4qDvdTtlVo=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Softbeeftacos-GettyImages-614313140-593df4533df78c537b375d6d.jpg",
     "customerRatings": [4, 4.5, 5, 5],
-    "customerRatingAvg": 4.5	
+    "customerRatingAvg": 4.6	
 }
 ```
 
@@ -240,7 +241,8 @@ example
 {
 	"location": "Phoenix, AZ",
 	"departureTime": "13:00",
-	"nextLocation": "Los Angeles, CA"	
+	"nextLocation": "Los Angeles, CA",
+	nextId: 1	
 }
 ```
 # Get Next Location for Specific Truck (optional)
@@ -259,7 +261,7 @@ example
 {
 	"location": "Los Angeles, CA",
 	"arrivalTime": "20:00",
-	"departureTime": "8:00"
+	"departureTime": "08:00"
     
 }
 ```

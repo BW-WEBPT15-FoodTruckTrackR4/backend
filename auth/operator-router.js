@@ -17,7 +17,7 @@ router.post('/register', (req, res) => {
     })
 })
 
-router.get('/login', (req, res) => {
+router.post('/login', (req, res) => {
     let {username, password} = req.body;
 
     Users.findByOperator({ username })

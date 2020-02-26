@@ -98,21 +98,39 @@ example
 NOTE: Login returns a cookie with login timeout when logging in with their username and password
 
 
-# Get list of all Users
+# Get list of all Operators
 *`HTTP method: `***`GET`**
 
-*`URL:`***`/api/users/users`**
+*`URL:`***`/api/operator`**
 
 * requires valid token passed in through Authorization header
 
 * shows all user info except for passwords (passwords are also hashed)
 
-# Get User by ID
+# Get list of all Diners
 *`HTTP method: `***`GET`**
 
-*`URL:`***`/api/users/:id`**
+*`URL:`***`/api/diner`**
+
+* requires valid token passed in through Authorization header
+
+* shows all user info except for passwords (passwords are also hashed)
+
+
+# Get Diner by ID
+*`HTTP method: `***`GET`**
+
+*`URL:`***`/api/operator/:id`**
 
 * pass in the user id through url
+
+# Get Operator by ID
+*`HTTP method: `***`GET`**
+
+*`URL:`***`/api/operator/:id`**
+
+* pass in the user id through url
+
 
 # Get list of all trucks
 *`HTTP method:`***`GET`**

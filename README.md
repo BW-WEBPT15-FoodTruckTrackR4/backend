@@ -13,7 +13,7 @@ http://foodtrucktrackr4.herokuapp.com
 ```
 # Register as Diner
 * `HTTP method:` ***`POST`***
-* `URL: `***`api/users/diner/register`***
+* `URL: `***`api/diner/register`***
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |
@@ -37,7 +37,7 @@ NOTE: Register returns their token, their user info, and their hashed password
 # Register as Operator
 
 * `HTTP method: `***`POST`***
-* `URL: `***`api/users/operator/register`***
+* `URL: `***`api/operator/register`***
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |

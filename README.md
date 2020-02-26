@@ -13,7 +13,7 @@ http://foodtrucktrackr4.herokuapp.com
 ```
 # Register as Diner
 * `HTTP method:` ***`POST`***
-* `URL: `***`api/diner/register`***
+* `URL: `***`api/users/diner/register`***
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |
@@ -37,19 +37,19 @@ NOTE: Register returns their token, their user info, and their hashed password
 # Register as Operator
 
 * `HTTP method: `***`POST`***
-* `URL: `***`api/operator/register`***
+* `URL: `***`api/users/operator/register`***
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |
 | username       | String |   YES    |  YES   |                       |
 | password       | String |   YES    |   NO   |                       |
-| trucksOwned           | String |   YES    |   NO   
+| trucksOwned           | integer |   YES    |   NO   
 
 example
 ```
 {
 	"username": "Operator12",
-	"password": "pizza",
+	"password": "foodtrucks",
 	"trucksOwned": "3",
 	
 }
@@ -57,10 +57,10 @@ example
 
 NOTE: Register returns their token, their user info, and their hashed password
 
-# Login 
+# Login As Operator
 *`HTTP method: `***`POST`**
 
-*`URL:`***`/api/users/login`**
+*`URL:`***`/api/operator/login`**
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |
@@ -76,6 +76,27 @@ example
 ```
 
 NOTE: Login returns a cookie with login timeout when logging in with their username and password
+
+# Login as Diner
+*`HTTP method: `***`POST`**
+
+*`URL:`***`/api/diner/login`**
+
+| Name           | Type   | Required | Unique | Description           |
+| :------------- | :----- | :------: | :----: | :-------------------- |
+| username       | String |   YES    |  YES   |                       |
+| password       | String |   YES    |   NO   |                       |
+
+example
+```
+{
+	"username": "Operator12",
+	"password": "foodtrucks"
+}
+```
+
+NOTE: Login returns a cookie with login timeout when logging in with their username and password
+
 
 # Get list of all Users
 *`HTTP method: `***`GET`**
@@ -114,6 +135,7 @@ NOTE: Login returns a cookie with login timeout when logging in with their usern
 | customerRatings          | String |   NO    |   NO   |                       |
 | customerRatingAvg          | Integer|   NO   |  NO   |  
 | menuId         | Integer|   NO   |  NO   |                      |
+| locationId         | Integer|   NO   |  NO   |                      |
 
 example
 ```
@@ -163,11 +185,11 @@ example
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |
-| itemName      | String |   YES   |  NO   |                       |
-| itemDescription       | String |   NO    |   NO   |                       |
-| itemPhotos          | String |   NO    |   NO   |                       |
-| customerRatings         | String |   YES   |  NO   |                       |
-| customerRatingAvg     | Integer  | YES     |  NO
+| itemName      | String |   YES   |  YES   |                       |
+| itemDescription       | String |   YES    |   NO   |                       |
+| itemPhotos          | String |   YES    |   NO   |                       |
+| customerRatings         | String |   NO   |  NO   |                       |
+| customerRatingAvg     | Integer  | NO     |  NO
 |
 example
 ```
@@ -189,7 +211,7 @@ example
 | :------------- | :----- | :------: | :----: | :-------------------- |
 | cuisineType       | String |   YES    |  YES   |                       |
 | customerRatingAvg       | Integer |   YES    |   NO   |                       |
-| radSize           | Varchar |   YES    |   NO   
+| radSize           | String |   YES    |   NO   
 
 
 example
@@ -209,7 +231,7 @@ example
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |
-| location       | String |   YES    |  YES   |                       |
+| location       | String |   YES    |  NO   |                       |
 | departureTime       | Datetime |   NO    |   NO   |                       |
 | nextLocation           | String |   NO   |   NO                         |
 | nextId         | Integer|   NO   |  NO   | 

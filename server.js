@@ -11,17 +11,17 @@ const foodTruckRouter = require('./foodtruck/food-truck-router.js');
 const foodTrucksRouter = require('./foodtruck/food-trucks-router.js')
 
 // sessions and cookies
-const sessionConfig = {
-    name: 'foodie',
-    secret: 'Food trucks for life bruh',
-    cookie: {
-        maxAge: 1000 * 120,
-        secure: true,
-        httpOnly: true
-    },
-    resave: false,
-    saveUninitialized: false
-}
+// const sessionConfig = {
+//     name: 'foodie',
+//     secret: 'Food trucks for life bruh',
+//     cookie: {
+//         maxAge: 1000 * 120,
+//         secure: true,
+//         httpOnly: true
+//     },
+//     resave: false,
+//     saveUninitialized: false
+// }
 
 // server
 const server = express();
@@ -29,7 +29,16 @@ const server = express();
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
-server.use(session(sessionConfig));
+// server.use(session(sessionConfig));
+server.get('token', (res,req) => {
+    // generate a token
+    // return the token
+    const token = jwt.sign({
+        token: 'heres the token',
+        exp: 1000 * 60 * 5
+    }, 'secret')
+    res.status(400).json(token)
+})
 
 server.use('/api/operator', operatorRouter);
 server.use('/api/diner', dinerRouter);

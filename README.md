@@ -152,8 +152,8 @@ NOTE: Login returns a cookie with login timeout when logging in with their usern
 | cuisineType       | String |   YES    |   NO   |                       |
 | customerRatings          | String |   NO    |   NO   |                       |
 | customerRatingAvg          | Integer|   NO   |  NO   |  
-| menuId         | Integer|   NO   |  NO   |                      |
-| locationId         | Integer|   NO   |  NO   |                      |
+| menu_id         | Integer|   YES   |  NO   |                      |
+| location_id         | Integer|   YES   |  NO   |                      |
 
 example
 ```
@@ -162,8 +162,8 @@ example
     cuisineType: "Mexican",
     "customerRatings": [5, 4.5, 5, 5]
     "customerRatingAvg: 4.7,
-	"menuId": 1,
-	"locationId: 1
+	"menu_id": 1,
+	"location_id: 1
 }
 ```
 # Create a Truck
@@ -199,7 +199,7 @@ example
 # Get Menu for Specific Truck
 *`HTTP method: `***`GET`**
 
-*`URL:`***`/api/truck/menu/:id`**
+*`URL:`***`/api/truck/:id/menu`**
 
 * Returns truck's menu information by ID
 
@@ -221,7 +221,7 @@ example
 }
 ```
 
-# Get Truck By Query Search
+# Get list of Trucks By Query Search
 *`HTTP method: `***`GET`**
 
 *`URL:`***`/api/trucks/search`**
@@ -246,27 +246,19 @@ example
 # Get Location for Specific Truck
 
 * `HTTP method:` ***`GET`***
-* `URL: `***`api/truck/location/:id`***
+* `URL: `***`api/truck/:id/location`***
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |
 | location       | String |   YES    |  NO   |                       |
 | departureTime       | Datetime |   NO    |   NO   |                       |
-| nextLocation           | String |   NO   |   NO                         |
-| nextId         | Integer|   NO   |  NO   | 
-example
-```
-{
-	"location": "Phoenix, AZ",
-	"departureTime": "13:00",
-	"nextLocation": "Los Angeles, CA",
-	nextId: 1	
-}
-```
+| nextLocation | String |   NO   | NO |
+|next_id | integer | YES | NO|
+
 # Get Next Location for Specific Truck (optional)
 
 * `HTTP method:` ***`GET`***
-* `URL: `***`api/truck/location/next/:id`***
+* `URL: `***`api/truck/:id/location/next`***
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |
@@ -283,4 +275,5 @@ example
     
 }
 ```
+
 

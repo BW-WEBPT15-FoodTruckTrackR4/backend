@@ -16,7 +16,7 @@ const sessionConfig = {
     secret: 'Food trucks for life bruh',
     cookie: {
         maxAge: 1000 * 120,
-        secure: true,
+        secure: false,
         httpOnly: true
     },
     resave: false,

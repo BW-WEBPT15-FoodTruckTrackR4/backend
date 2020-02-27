@@ -20,23 +20,23 @@ function getTrucksById(id) {
 }
 
 function getMenu(id) {
-    return db('menus as m')
-    .join('trucks as t', 't.id', 'm.menu_id')
-    .select('m.id', 't.imageOfTruck', 'm.itemName', 'm.itemDescription', 'm.itemPhotos', 'm.customerRatings', 'm.customerRatingAvg')
+    return db('trucks as t')
+    .join('menus as m', 'm.id', 't.menu_id')
+    .select('t.id', 't.imageOfTruck', 'm.itemName', 'm.itemDescription', 'm.itemPhotos', 'm.customerRatings', 'm.customerRatingAvg')
     .where({ menu_id: id})
    
 }
 
 function getLocation(id) {
-    return db('location as l')
-    .join('trucks as t', 't.id', 'l.location_id')
+    return db('trucks as t')
+    .join('location as l', 'l.id', 't.location_id')
     .select('l.id', 'l.location', 'l.departureTime', 'l.nextLocation')
     .where({ location_id: id})
 }
 
 function getNext(id) {
-    return db('nextLocation as nl')
-    .join('location as l', 'l.id', 'nl.next_id')
+    return db('location as l')
+    .join('nextLocation as nl', 'nl.id', 'l.next_id')
     .select('nl.id', 'nl.location', 'nl.arrivalTime', 'nl.departureTime')
     .where({ next_id: id})
 }

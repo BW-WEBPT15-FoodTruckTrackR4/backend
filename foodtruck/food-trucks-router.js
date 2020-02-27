@@ -14,6 +14,16 @@ router.get('/', (req, res) => {
        })
    })
 })
-
+router.get('/search', (req, res) => {
+    Trucks.searchByQuery()
+    .then(search => {
+        res.json(search)
+    })
+    .catch(error => {
+        res.status(500).json({ 
+            message: 'Failed to get any searches'
+        })
+    })
+})
 
 module.exports = router;

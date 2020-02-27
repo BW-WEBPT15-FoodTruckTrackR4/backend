@@ -1,4 +1,7 @@
-
+/* 
+NOTE: Foreign keys need to be in correct order 
+from highest to lowest!
+*/
 exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex('nextLocation').truncate()

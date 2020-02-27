@@ -2,8 +2,8 @@
 exports.seed = 
 function(knex) {
   // Deletes ALL existing entries
-  return knex('trucks').truncate()
-    .then(function () {
+  // return knex('trucks').truncate()
+    // .then(function () {
       // Inserts seed entries
       return knex('trucks').insert([
         {
@@ -31,5 +31,5 @@ function(knex) {
           location_id: 3
         }
       ]);
-    });
+    // });
 };

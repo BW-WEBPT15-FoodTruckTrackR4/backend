@@ -1,8 +1,8 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('menus').truncate()
-    .then(function () {
+  // return knex('menus').truncate()
+  //   .then(function () {
       // Inserts seed entries
       return knex('menus').insert([
         {
@@ -30,5 +30,5 @@ exports.seed = function(knex) {
           customerRatingAvg: 4.8
         }
       ]);
-    });
+    // });
 };

@@ -5,9 +5,24 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('nextLocation').insert([
-        {location: 'Los Angeles, CA', arrivalTime: '20:00', departureTime: '08:00'},
-        {location: 'Seattle, WA', arrivalTime: '14:00', departureTime: '18:00'},
-        {location: 'Chicago, IL', arrivalTime: '15:00', departureTime: '23:00'}
+        {
+          id: 1,
+          location: 'Los Angeles, CA', 
+          arrivalTime: '20:00', 
+          departureTime: '08:00'
+        },
+        {
+          id: 2,
+          location: 'Seattle, WA', 
+          arrivalTime: '14:00', 
+          departureTime: '18:00'
+        },
+        {
+          id: 3,
+          location: 'Chicago, IL', 
+          arrivalTime: '15:00', 
+          departureTime: '23:00'
+        }
       ]);
     });
 };

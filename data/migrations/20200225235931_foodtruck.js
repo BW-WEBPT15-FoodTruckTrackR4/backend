@@ -1,5 +1,5 @@
 
-exports.up = function(knex) {
+exports.up = function(knex, Promise) {
   return knex.schema
   .createTable('trucks', truck => {
     truck.increments();
@@ -11,16 +11,19 @@ exports.up = function(knex) {
     truck.string('customerRatingAvg')
     truck.integer('menu_id')
     .unsigned()
+    .notNullable()
     .references('id')
     .inTable('menus')
     .onDelete('CASCADE')
     .onUpdate('CASCADE')
     truck.integer('location_id')
     .unsigned()
+    .notNullable()
     .references('id')
     .inTable('location')
     .onDelete('CASCADE')
     .onUpdate('CASCADE')
+
   })
   .createTable('menus', menu => {
       menu.increments();
@@ -50,6 +53,7 @@ exports.up = function(knex) {
       location.string('nextLocation')
       location.integer('next_id')
       .unsigned()
+      .notNullable()
       .references('id')
       .inTable('nextLocation')
       .onDelete('CASCADE')
@@ -59,12 +63,12 @@ exports.up = function(knex) {
       next.increments();
       next.string('location')
       .notNullable()
-      next.datetime('arrivalTime')
-      next.datetime('departureTime')
+      next.time('arrivalTime')
+      next.time('departureTime')
   })
 };
 
-exports.down = function(knex) {
+exports.down = function(knex, Promise) {
   return knex.schema
   .dropTableIfExists('trucks')
   .dropTableIfExists('menus')

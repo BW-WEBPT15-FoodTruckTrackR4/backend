@@ -229,7 +229,7 @@ example
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |
-| cuisineType       | String |   YES    |  YES   |                       |
+| cuisineType       | String |   YES    |  NO   |                       |
 | customerRatingAvg       | Integer |   YES    |   NO   |                       |
 | radSize           | String |   YES    |   NO   
 
@@ -263,7 +263,7 @@ example
 
 | Name           | Type   | Required | Unique | Description           |
 | :------------- | :----- | :------: | :----: | :-------------------- |
-| location      | String |   YES    |  YES   |                       |
+| location      | String |   YES    |  NO   |                       |
 | arrivalTime      | Datetime |   NO    |   NO   |                       |
 | departureTime          | Datetime |   NO    |   NO                         |
 

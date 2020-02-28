@@ -2,7 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const session = require('express-session');
+// const session = require('express-session');
 
 const authenticate = require('./auth/auth-middleware.js');
 const operatorRouter = require('./auth/operator-router.js');
@@ -30,7 +30,7 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 // server.use(session(sessionConfig));
-server.get('token', (res,req) => {
+server.get('token', (req, res) => {
     // generate a token
     // return the token
     const token = jwt.sign({

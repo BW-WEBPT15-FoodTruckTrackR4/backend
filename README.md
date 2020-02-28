@@ -75,7 +75,7 @@ example
 }
 ```
 
-NOTE: Login returns a cookie with login timeout when logging in with their username and password
+NOTE: Login returns a JWT token when logging in with their username and password
 
 # Login as Diner
 *`HTTP method: `***`POST`**

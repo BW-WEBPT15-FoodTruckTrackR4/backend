@@ -3,6 +3,7 @@ module.exports = {
     getTrucks,
     getTrucksById,
     getMenu,
+    getMenus,
     getLocation,
     getNext,
     searchByQuery,
@@ -25,6 +26,10 @@ function getMenu(id) {
     .select('t.id', 't.imageOfTruck', 'm.itemName', 'm.itemDescription', 'm.itemPhotos', 'm.customerRatings', 'm.customerRatingAvg')
     .where({ menu_id: id})
    
+}
+
+function getMenus() {
+    return db('menus');
 }
 
 function getLocation(id) {

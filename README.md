@@ -210,6 +210,7 @@ example
 | itemPhotos          | String |   YES    |   NO   |                       |
 | customerRatings         | String |   NO   |  NO   |                       |
 | customerRatingAvg     | Integer  | NO     |  NO |
+
 example
 ```
 {

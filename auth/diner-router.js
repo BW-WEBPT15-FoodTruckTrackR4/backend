@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 const Users = require('./auth-model.js')
+const authenticate = require('./auth-middleware.js');
 const secrets = require('../config/secrets.js')
 
 router.post('/register', (req, res) => {
@@ -39,6 +40,26 @@ router.post('/login', (req, res) => {
     })
     .catch(error => {
         res.status(500).json(error)
+    })
+})
+
+router.get('/', authenticate, (req, res) => {
+    Users.findDiners()
+    .then(diners => {
+        res.json(diners)
+    })
+})
+
+router.get('/:id', authenticate, (req, res) => {
+    const {id} = req.params
+    Users.findByDinerId(id)
+    .then(diners => {
+        res.json(diners)
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: 'Failed to get diners by specific id'
+        })
     })
 })
 

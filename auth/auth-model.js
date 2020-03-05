@@ -22,11 +22,11 @@ async function addDiner(user) {
     }
 
 function findDiners() {
-    return db('diners').select('id', 'username', 'password')
+    return db('diners').select('id', 'username', 'password', 'currentLocation', 'favoriteTrucks')
 }
 
 function findOperators() {
-    return db('operators').select('id', 'username', 'password')
+    return db('operators').select('id', 'username', 'password', 'trucksOwned')
 }
 
 function findByDiner(filter) {

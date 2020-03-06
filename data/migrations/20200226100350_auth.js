@@ -17,7 +17,7 @@ exports.up = function(knex) {
       .notNullable()
       diners.string('currentLocation')
       .notNullable()
-      diners.specificType('favoriteTrucks', 'text ARRAY')
+      diners.specificType('favoriteTrucks', 'TEXT ARRAY')
   })
   .createTable('operators', operators => {
     operators.increments();

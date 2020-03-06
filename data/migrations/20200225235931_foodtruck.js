@@ -64,7 +64,6 @@ exports.up = function(knex, Promise) {
     // .inTable('location')
     .onDelete('CASCADE')
     .onUpdate('CASCADE')
-
   })
 };
 

@@ -120,12 +120,26 @@ NOTE: Login returns a cookie with login timeout when logging in with their usern
 # Get Diner by ID
 *`HTTP method: `***`GET`**
 
-*`URL:`***`/api/operator/:id`**
+*`URL:`***`/api/diner/:id`**
+
+* pass in the user id through url
+
+# Update Diner by ID
+*`HTTP method: `***`PUT`**
+
+*`URL:`***`/api/diner/:id`**
 
 * pass in the user id through url
 
 # Get Operator by ID
 *`HTTP method: `***`GET`**
+
+*`URL:`***`/api/operator/:id`**
+
+* pass in the user id through url
+
+# Update Operator by ID
+*`HTTP method: `***`PUT`**
 
 *`URL:`***`/api/operator/:id`**
 
@@ -196,26 +210,12 @@ example
 
 * Returns all trucks' menus
 
-# Get list of all Favorite Food Trucks
-*`HTTP method: `***`GET`**
-
-*`URL:`***`/api/trucks/favtrucks`**
-
-* Returns all favorite food trucks
-
 # Get Favorite Food Truck by ID
 *`HTTP method: `***`GET`**
 
 *`URL:`***`/api/truck/:id/favtruck`**
 
 * Returns a favorite food truck by specific ID
-
-# Get list of all Food Ratings
-*`HTTP method: `***`GET`**
-
-*`URL:`***`/api/trucks/foodratings`**
-
-* Returns all menus' food ratings
 
 # Get Food Rating by ID
 *`HTTP method: `***`GET`**
@@ -224,41 +224,12 @@ example
 
 * Returns a menu's food rating by specific ID
 
-# Get list of all Ratings
-*`HTTP method: `***`GET`**
-
-*`URL:`***`/api/trucks/ratings`**
-
-* Returns all trucks' ratings
-
 # Get rating by ID
 *`HTTP method: `***`GET`**
 
 *`URL:`***`/api/truck/:id/rating`**
 
 * Returns a truck's rating by specific ID
-
-# Add a favorite Food Truck
-*`HTTP method: `***`POST`**
-
-*`URL:`***`/api/truck/favtruck`**
-
-* Creates a favorite food truck with the following information: truckName
-
-
-# Add a Rating 
-*`HTTP method: `***`POST`**
-
-*`URL:`***`/api/truck/rating`**
-
-* Creates truck with the following information: rating
-
-# Add a food rating
-*`HTTP method: `***`POST`**
-
-*`URL:`***`/api/truck/foodrating`**
-
-* Creates truck with the following information: foodrating
 
 
 # Get Menu for Specific Truck

@@ -3,6 +3,8 @@ const db = require('../data/dbConfig.js')
 module.exports = {
     addOperator,
     addDiner,
+    updateDiner,
+    updateOperator,
     findOperators,
     findByOperator,
     findByOperatorId,
@@ -45,4 +47,11 @@ function findByOperatorId(id) {
     return db('operators').where({ id }).first()
 }
 
+function updateDiner(id, dinerData) {
+    return db('diners').where({id}).update(dinerData)
+}
+
+function updateOperator(id, operatorData) {
+    return db('operators').where({id}).update(operatorData)
+}
 

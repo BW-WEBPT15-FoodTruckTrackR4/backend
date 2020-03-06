@@ -11,7 +11,6 @@ exports.up = function(knex) {
       .notNullable()
       diners.integer('favoriteTruck_id')
       .unsigned()
-      .notNullable()
       .references('favfoodtrucks.id')
       .onDelete('CASCADE')
     .onUpdate('CASCADE')

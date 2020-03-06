@@ -9,7 +9,12 @@ exports.up = function(knex) {
       .notNullable()
       diners.string('currentLocation')
       .notNullable()
-      diners.string('favoriteTrucks')
+      diners.integer('favoriteTruck_id')
+      .unsigned()
+      .notNullable()
+      .references('favfoodtrucks.id')
+      .onDelete('CASCADE')
+    .onUpdate('CASCADE')
   })
   .createTable('operators', operators => {
     operators.increments();
@@ -21,11 +26,17 @@ exports.up = function(knex) {
     operators.integer('trucksOwned')
     .notNullable()
 })
+.createTable('favfoodtrucks', trucks => {
+  trucks.increments();
+  trucks.string('truckName')
+  .notNullable()
+})
 };
 
 exports.down = function(knex) {
   return knex.schema
   .dropTableIfExists('diners')
   .dropTableIfExists('operators')
+  .dropTableIfExists('favfoodtrucks')
   
 };

@@ -33,9 +33,46 @@ router.get('/menus', (req, res) => {
     })
     .catch(error => {
         res.status(500).json({ 
-            message: 'Failed to get any searches'
+            message: 'Failed to get any menus'
         })
     })
 })
+
+router.get('/favtrucks', (req, res) => {
+    Trucks.getFav()
+    .then(fav => {
+        res.json(fav)
+    })
+    .catch(error => {
+        res.status(500).json({ 
+            message: 'Failed to get any favorite trucks'
+        })
+    })
+})
+
+router.get('/foodratings', (req, res) => {
+    Trucks.getFood()
+    .then(food => {
+        res.json(food)
+    })
+    .catch(error => {
+        res.status(500).json({ 
+            message: 'Failed to get any food ratings'
+        })
+    })
+})
+
+router.get('/ratings', (req, res) => {
+    Trucks.getRatings()
+    .then(rating => {
+        res.json(rating)
+    })
+    .catch(error => {
+        res.status(500).json({ 
+            message: 'Failed to get any ratings'
+        })
+    })
+})
+
 
 module.exports = router;

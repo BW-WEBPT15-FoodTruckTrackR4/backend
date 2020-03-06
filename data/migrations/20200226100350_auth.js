@@ -1,6 +1,14 @@
 
 exports.up = function(knex) {
-  return knex.schema.createTable('diners', diners => {
+  return knex.schema
+
+  .createTable('favfoodtrucks', trucks => {
+    trucks.increments();
+    trucks.string('truckName')
+    .notNullable()
+  })
+  
+  .createTable('diners', diners => {
       diners.increments();
       diners.string('username')
       .unique()
@@ -9,11 +17,7 @@ exports.up = function(knex) {
       .notNullable()
       diners.string('currentLocation')
       .notNullable()
-      diners.integer('favoriteTruck_id')
-      .unsigned()
-      .references('favfoodtrucks.id')
-      .onDelete('CASCADE')
-    .onUpdate('CASCADE')
+      diners.specificType('favoriteTrucks', 'text ARRAY')
   })
   .createTable('operators', operators => {
     operators.increments();
@@ -24,11 +28,6 @@ exports.up = function(knex) {
     .notNullable()
     operators.integer('trucksOwned')
     .notNullable()
-})
-.createTable('favfoodtrucks', trucks => {
-  trucks.increments();
-  trucks.string('truckName')
-  .notNullable()
 })
 };
 

@@ -1,8 +1,8 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('location').truncate()
-    .then(function () {
+  // return knex('location').truncate()
+  //   .then(function () {
       // Inserts seed entries
       return knex('location').insert([
         { 
@@ -27,5 +27,5 @@ exports.seed = function(knex) {
            next_id: 3
           }
       ]);
-    });
+    // });
 };

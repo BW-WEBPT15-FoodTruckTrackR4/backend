@@ -20,7 +20,7 @@ http://foodtrucktrackr4.herokuapp.com/api/truck
 | username       | String |   YES    |  YES   |                       |
 | password       | String |   YES    |   NO   |                       |
 | currentLocation           | String |   YES    |   NO   |                       |
-| favoriteTruck_id          | Integer |   NO   |  NO   |                       |
+| favoriteTrucks          | text ARRAY |   NO   |  NO   |                       |
 
 example
 ```
@@ -28,7 +28,7 @@ example
 	"username": "foodiefan1",
 	"password": "tacos",
 	"currentLocation": "Phoenix, AZ",
-    favoriteTruck_id: 1
+    favoriteTrucks: ["Joe's Tacos", "The Gorilla Cheese Truck", "Chicago Lunchbox"]
 	
 }
 ```
@@ -150,7 +150,7 @@ NOTE: Login returns a cookie with login timeout when logging in with their usern
 | :------------- | :----- | :------: | :----: | :-------------------- |
 | imageOfTruck      | String |   YES    |  NO   |                       |
 | cuisineType       | String |   YES    |   NO   |                       |
-| customerRating_id          | Integer |   NO    |   NO   |                       |
+| rating         | INT ARRAY |   NO    |   NO   |                       |
 | customerRatingAvg          | Integer|   NO   |  NO   |  
 | menu_id         | Integer|   NO  |  NO   |                      |
 | location_id         | Integer|   NO   |  NO   |                      |
@@ -160,7 +160,7 @@ example
 {
 	"imageOfTruck": "https://rh-vendoradmin.s3.amazonaws.com/trucks/original/22326/5bfc55cc-fad4-4ab2-b0a1-692346204482.jpg",
     cuisineType: "Mexican",
-    "customerRating_id": 1
+    "rating": [4, 5, 5]
     "customerRatingAvg: 4.7,
 	"menu_id": 1,
 	"location_id: 1
@@ -273,7 +273,7 @@ example
 | itemName      | String |   YES   |  YES   |                       |
 | itemDescription       | String |   YES    |   NO   |                       |
 | itemPhotos          | String |   YES    |   NO   |                       |
-| customerRating_id         | Integer |   NO   |  NO   |                       |
+| foodRating        | INT ARRAY |   NO   |  NO   |                       |
 | customerRatingAvg     | Integer  | NO     |  NO |
 
 example
@@ -282,7 +282,7 @@ example
 	"itemName": "Tacos"
     "itemDescription": "Classic tacos with cheese, sour cream, salsa and lots of beef"
     "itemPhotos": "https://www.thespruceeats.com/thmb/uqB61QlpzfPZAtMJ-4qDvdTtlVo=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Softbeeftacos-GettyImages-614313140-593df4533df78c537b375d6d.jpg",
-    "customerRating_id": 1,
+    "foodRating": [5, 5, 5],
     "customerRatingAvg": 4.6	
 }
 ```

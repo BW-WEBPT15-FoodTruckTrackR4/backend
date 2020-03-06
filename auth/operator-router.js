@@ -66,6 +66,26 @@ router.get('/:id', authenticate, (req, res) => {
     })
 })
 
+router.put('/:id', authenticate, (req, res) => {
+    const {id} = req.params
+    const user = req.body
+
+    const hash = bcrypt.hashSync(user.password, 10);
+    user.password = hash
+
+    Users.updateOperator(id, user)
+    .then(updatedInfo => {
+        res.status(200).json({
+            updated: updatedInfo
+        })
+    })
+    .catch(error => {
+        res.status(500).json({
+            message: 'Failed to update operator information'
+        })
+    })
+})
+
 function genToken(user) {
     const payload = {
         userId: user.id,

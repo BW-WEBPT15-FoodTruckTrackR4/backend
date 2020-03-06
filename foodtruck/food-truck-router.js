@@ -17,38 +17,7 @@ router.get('/:id', (req, res) => {
        })
    })
 })
-router.get('/:id/foodtruck', (req, res) => {
-    const { id } = req.params;
-    Trucks.getFavTrucks(id)
-    .then(favTrucks => {
-          res.json(favTrucks);
-      })
-      .catch(err => {
-        res.status(500).json({ message: 'Failed to get favorite food truck information' });
-      });
-})
 
-router.get('/:id/foodrating', (req, res) => {
-    const { id } = req.params;
-    Trucks.getFoodRating(id)
-    .then(favFood => {
-          res.json(favFood);
-      })
-      .catch(err => {
-        res.status(500).json({ message: 'Failed to get favorite food rating information' });
-      });
-})
-
-router.get('/:id/rating', (req, res) => {
-    const { id } = req.params;
-    Trucks.getRating(id)
-    .then(ratings => {
-          res.json(ratings);
-      })
-      .catch(err => {
-        res.status(500).json({ message: 'Failed to get rating information' });
-      });
-})
 
 // POST
 router.post('/', (req, res) => {
@@ -64,44 +33,6 @@ router.post('/', (req, res) => {
     })
 })
 
-router.post('/foodtruck', (req, res) => {
-    const favData = req.body
-    Trucks.addFavTruck(favData)
-    .then(favtruck => {
-        res.status(201).json(favtruck)
-    })
-    .catch(error => {
-        res.status(500).json({
-            message: 'Failed to add favorite truck'
-        })
-    })
-})
-
-router.post('/rating', (req, res) => {
-    const ratingData = req.body
-    Trucks.addRating(ratingData)
-    .then(rating => {
-        res.status(201).json(rating)
-    })
-    .catch(error => {
-        res.status(500).json({
-            message: 'Failed to add truck rating'
-        })
-    })
-})
-
-router.post('/foodrating', (req, res) => {
-    const ratingData = req.body
-    Trucks.addFoodRating(ratingData)
-    .then(rating => {
-        res.status(201).json(rating)
-    })
-    .catch(error => {
-        res.status(500).json({
-            message: 'Failed to add food rating'
-        })
-    })
-})
 // PUT
 router.put('/:id', (req, res) => {
     const {id} = req.params

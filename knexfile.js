@@ -3,10 +3,9 @@
 module.exports = {
 
   development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './data/foodtrucks.db3'
-    },
+    client: 'pg',
+    connection: 'postgres://localhost/foodtrucks'
+    ,
     useNullAsDefault: true,
     migrations: {
       directory: './data/migrations',
@@ -14,10 +13,10 @@ module.exports = {
     seeds: {
       directory: './data/seeds',
     },
-    pool: {
-      afterCreate: (conn, done) => {
-        conn.run('PRAGMA foreign_keys = ON', done);
-      },
-    },
+    // pool: {
+    //   afterCreate: (conn, done) => {
+    //     conn.run('PRAGMA foreign_keys = ON', done);
+    //   },
+    // },
   },
 }

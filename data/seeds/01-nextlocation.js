@@ -4,8 +4,8 @@ from highest to lowest!
 */
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('nextLocation').truncate()
-    .then(function () {
+  // return knex('nextLocation').truncate()
+  //   .then(function () {
       // Inserts seed entries
       return knex('nextLocation').insert([
         {
@@ -27,5 +27,6 @@ exports.seed = function(knex) {
           departureTime: '23:00'
         }
       ]);
-    });
-};
+    }
+    // );
+// };

@@ -20,7 +20,7 @@ http://foodtrucktrackr4.herokuapp.com/api/truck
 | username       | String |   YES    |  YES   |                       |
 | password       | String |   YES    |   NO   |                       |
 | currentLocation           | String |   YES    |   NO   |                       |
-| favoriteTrucks          | String |   NO   |  NO   |                       |
+| favoriteTruck_id          | Integer |   YES   |  NO   |                       |
 
 example
 ```
@@ -28,7 +28,7 @@ example
 	"username": "foodiefan1",
 	"password": "tacos",
 	"currentLocation": "Phoenix, AZ",
-    favoriteTrucks: "Joe's Tacos, The Gorilla Cheese Truck, Taco Toppers"
+    favoriteTruck_id: 1
 	
 }
 ```
@@ -195,6 +195,71 @@ example
 *`URL:`***`/api/trucks/menus`**
 
 * Returns all trucks' menus
+
+# Get list of all Favorite Food Trucks
+*`HTTP method: `***`GET`**
+
+*`URL:`***`/api/trucks/favtrucks`**
+
+* Returns all favorite food trucks
+
+# Get Favorite Food Truck by ID
+*`HTTP method: `***`GET`**
+
+*`URL:`***`/api/truck/:id/favtruck`**
+
+* Returns a favorite food truck by specific ID
+
+# Get list of all Food Ratings
+*`HTTP method: `***`GET`**
+
+*`URL:`***`/api/trucks/foodratings`**
+
+* Returns all menus' food ratings
+
+# Get Food Rating by ID
+*`HTTP method: `***`GET`**
+
+*`URL:`***`/api/truck/:id/foodrating`**
+
+* Returns a menu's food rating by specific ID
+
+# Get list of all Ratings
+*`HTTP method: `***`GET`**
+
+*`URL:`***`/api/trucks/ratings`**
+
+* Returns all trucks' ratings
+
+# Get rating by ID
+*`HTTP method: `***`GET`**
+
+*`URL:`***`/api/truck/:id/rating`**
+
+* Returns a truck's rating by specific ID
+
+# Add a favorite Food Truck
+*`HTTP method: `***`POST`**
+
+*`URL:`***`/api/truck/favtruck`**
+
+* Creates a favorite food truck with the following information: truckName
+
+
+# Add a Rating 
+*`HTTP method: `***`POST`**
+
+*`URL:`***`/api/truck/rating`**
+
+* Creates truck with the following information: rating
+
+# Add a food rating
+*`HTTP method: `***`POST`**
+
+*`URL:`***`/api/truck/foodrating`**
+
+* Creates truck with the following information: foodrating
+
 
 # Get Menu for Specific Truck
 *`HTTP method: `***`GET`**

@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://host.docker.internal/foodtrucks'
+    connection: 'postgres://host.docker.internal:5432/foodtrucks'
     ,
     useNullAsDefault: true,
     migrations: {

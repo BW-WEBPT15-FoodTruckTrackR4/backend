@@ -1,12 +1,6 @@
 
 exports.up = function(knex) {
   return knex.schema
-
-  .createTable('favfoodtrucks', trucks => {
-    trucks.increments();
-    trucks.string('truckName')
-    .notNullable()
-  })
   
   .createTable('diners', diners => {
       diners.increments();
@@ -35,6 +29,5 @@ exports.down = function(knex) {
   return knex.schema
   .dropTableIfExists('diners')
   .dropTableIfExists('operators')
-  .dropTableIfExists('favfoodtrucks')
   
 };

@@ -16,7 +16,8 @@ router.post('/register', (req, res) => {
         res.status(201).json(saved);
     })
     .catch(error => {
-        res.status(500).json(error)
+        console.error(error)
+        res.status(500).json({ message: 'could not register user info '})
     })
 })
 
@@ -97,5 +98,4 @@ function genToken(user) {
     return token;
 }
 
-
-module.exports = router;
+module.exports =  router;

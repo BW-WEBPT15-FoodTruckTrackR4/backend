@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const bodyParser = require('body-parser');
 // const session = require('express-session');
 
 const authenticate = require('./auth/auth-middleware.js');
@@ -28,6 +29,7 @@ const server = express();
 
 server.use(helmet());
 server.use(cors());
+server.use(bodyParser.json());
 server.use(express.json());
 // server.use(session(sessionConfig));
 server.get('token', (req, res) => {

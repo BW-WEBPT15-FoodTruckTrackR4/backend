@@ -7,20 +7,17 @@ module.exports = {
     updateOperator,
     findOperators,
     findByOperator,
-    findByOperatorId,
     findDiners,
-    findByDiner,
-    findByDinerId
+    findByDiner
 }
 
 async function addOperator(user) {
-const [id] = await db('operators').insert(user);
-    return findByOperatorId(id)
+    return db('operators').insert(user);
 }
 
 async function addDiner(user) {
-    const [id] = await db('diners').insert(user);
-        return findByDinerId(id)
+    return db('diners').insert(user);
+        
     }
 
 function findDiners() {
@@ -37,14 +34,6 @@ function findByDiner(filter) {
 
 function findByOperator(filter) {
     return db('operators').where(filter)
-}
-
-function findByDinerId(id) {
-    return db('diners').where({ id }).first()
-}
-
-function findByOperatorId(id) {
-    return db('operators').where({ id }).first()
 }
 
 function updateDiner(id, dinerData) {
